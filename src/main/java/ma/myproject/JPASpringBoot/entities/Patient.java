@@ -22,7 +22,5 @@ public class Patient {
 	private Date dateNaissance;
 	private int score;
 	private boolean malade;
-	
-	// Ceci est un commentaire
 
 }
