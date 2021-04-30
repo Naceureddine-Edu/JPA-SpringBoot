@@ -22,7 +22,5 @@ public class Patient {
 	private Date dateNaissance;
 	private int score;
 	private boolean malade;
-	private int age;
-	private String adresse;
 
 }

@@ -1,10 +1,16 @@
 package ma.myproject.JPASpringBoot;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
+import ma.myproject.JPASpringBoot.entities.Patient;
 import ma.myproject.JPASpringBoot.repositories.PatientRepository;
 
 @SpringBootApplication
@@ -72,3 +78,4 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 			listPatients.forEach(p -> {
 				System.out.println(p.toString());
 			});
+}}
