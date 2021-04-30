@@ -62,13 +62,13 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 				System.out.println(p.toString()); 
 				});
 			
-			System.out.println("--------------------deletteById------------------------------------");
+			/*System.out.println("--------------------deletteById------------------------------------");
 			
 			patientRepository.deleteById(3L);
 			
 			patientRepository.findAll().forEach(p -> { 
 				System.out.println(p.toString()); 
-				});
+				});  */
 			
 			System.out.println("--------------------Pagination-------------------------------------");
 			
