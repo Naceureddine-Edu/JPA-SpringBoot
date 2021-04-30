@@ -75,7 +75,7 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 			System.out.println("--------------------Pagination-------------------------------------");
 			
 			Page<Patient> pagePatients = patientRepository.findAll(PageRequest.of(0,2));
-			System.out.println("Len nombre de page est : " + pagePatients.getTotalPages());
+			System.out.println("Le nombre de page est : " + pagePatients.getTotalPages());
 			List<Patient> listPatients = pagePatients.getContent();
 			listPatients.forEach(p -> {
 				System.out.println(p.toString());
