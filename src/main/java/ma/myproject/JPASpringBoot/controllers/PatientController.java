@@ -1,6 +1,5 @@
 package ma.myproject.JPASpringBoot.controllers;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,7 +28,7 @@ public class PatientController {
 	@GetMapping(path = "/patients")
 	public String listPatient(Model model,
 			@RequestParam(name = "page", defaultValue = "0")int page,
-			@RequestParam(name = "size", defaultValue = "7")int size,
+			@RequestParam(name = "size", defaultValue = "5")int size,
 			@RequestParam(name = "keyword", defaultValue = "")String mc)
 	{
 		Page<Patient> pagePatient = patientrepository.findByNameContainsIgnoreCase(mc, PageRequest.of(page, size));
@@ -50,7 +49,7 @@ public class PatientController {
 	}
 	
 	/*
-	//Deuxieme Facon De Faire
+	//Deuxieme Facon De Faire Fowerd
 		@GetMapping("/supprimerPatient2")
 		public String supprimerPatient2(Long id,String keyword,int page,int size,Model model)
 		{
