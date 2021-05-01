@@ -29,10 +29,12 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		/*
 		patientRepository.save(new Patient(null,"Hassan",new Date(),2300,false));
 		patientRepository.save(new Patient(null,"Hamza",new Date(),4444,true));
 		patientRepository.save(new Patient(null,"Reda",new Date(),8933,false));
 		patientRepository.save(new Patient(null,"Aziz",new Date(),6666,false));
+		*/
 		
 		System.out.println("-------------------findAll---------------------(-----------------------");
 		

@@ -40,5 +40,24 @@ public class PatientController {
 		model.addAttribute("sizeModel", size);
 		return "patients";
 	}
-
+	
+	//Premiere Facon De Faire Est La Meilleure
+	@GetMapping("/supprimerPatient")
+	public String supprimerPatient(Long id,String keyword,int page,int size)
+	{
+		patientrepository.deleteById(id);
+		return "redirect:/patients?page="+page+"&size="+size+"&keyword="+keyword;
+	}
+	
+	/*
+	//Deuxieme Facon De Faire
+		@GetMapping("/supprimerPatient2")
+		public String supprimerPatient2(Long id,String keyword,int page,int size,Model model)
+		{
+			patientrepository.deleteById(id);
+			return listPatient(model, page, size, keyword);
+		}
+	*/
+	
+	
 }
