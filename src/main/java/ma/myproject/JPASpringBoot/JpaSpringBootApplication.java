@@ -34,12 +34,12 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 		patientRepository.save(new Patient(null,"Reda",new Date(),8933,false));
 		patientRepository.save(new Patient(null,"Aziz",new Date(),6666,false));
 		*/
-		
+		/*
 		System.out.println("-------------------findAll---------------------(-----------------------");
 		
 		patientRepository.findAll().forEach(p -> { 
 			System.out.println(p.toString()); 
-			});
+			});*/
 		
 			System.out.println("-------------------findById----------------------------------------");
 			Patient patient = patientRepository.findById(2L).get();

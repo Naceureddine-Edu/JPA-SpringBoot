@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="PageTemplate">
+
+<head>
+<meta charset="utf-8">
+
+<title>Form Patient</title>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<form>
+				<div class="form-group">
+					<label class="control-label">Name</label> <input type="text"
+						name="name" class="form-control"> <span></span>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Date De Naissance</label> <input
+						type="text" name="dateNaissance" class="form-control"> <span></span>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Malade</label> <input type="text"
+						name="malade" class="form-control"> <span></span>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

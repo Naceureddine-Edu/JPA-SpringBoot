@@ -59,4 +59,9 @@ public class PatientController {
 	*/
 	
 	
+	@GetMapping(path="/formPatient")
+	public String formPatient()
+	{
+		return "formPatient";
+	}
 }
