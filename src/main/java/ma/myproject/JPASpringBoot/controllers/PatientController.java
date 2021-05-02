@@ -72,12 +72,21 @@ public class PatientController {
 	}
 	
 	@PostMapping(path="/ajouterPatient")
-	public String ajouterPatient(@Valid Patient patient, BindingResult bindingResult)
+	public String ajouterPatient(Model model, @Valid Patient patient, BindingResult bindingResult)
 	{
 		if(bindingResult.hasErrors()) 
 			return "formPatient";
 		
 		patientrepository.save(patient);
-			return "formPatient";
+		model.addAttribute("patient", patient);
+			return "pageConfirmationAjout";
+	}
+	
+	@GetMapping(path="/modifierPatient")
+	public String modifierPatient(Model model, Long id)
+	{
+		Patient p = patientrepository.findById(id).get();
+		model.addAttribute("patient", p);
+		return "formPatient";
 	}
 }

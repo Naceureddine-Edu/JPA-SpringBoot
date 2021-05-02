@@ -12,44 +12,62 @@
 
 <body>
 	<div layout:fragment="content">
-		<div class="container">
-			<form th:action="@{ajouterPatient}" method="post">
+		<div class="container mt-3">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header" th:if="${patient.id==null}">Formulaire
+						D'ajout D'un Nouveau Patient</div>
+					<div class="card-header" th:if="${patient.id!=null}">Formulaire
+						De Modification D'un Patient</div>
+					<div class="card-body">
 
-				<div class="form-group">
-					<label class="control-label">Name</label> <input type="text"
-						name="name" class="form-control" th:value="${patient.name}">
-					<span th:errors=${patient.name} class="text-danger"></span>
-				</div>
+						<form th:action="@{ajouterPatient}" method="post">
 
-				<div class="form-group">
-					<label class="control-label">Email</label> <input type="email"
-						name="name" class="form-control" th:value="${patient.email}">
-					<span th:errors=${patient.email} class="text-danger"></span>
-				</div>
+							<div class="form-group">
+								<label class="control-label">ID :</label> <label
+									class="control-label" th:text="${patient.id}"></label> <input
+									type="hidden" name="id" class="form-control"
+									th:value="${patient.id}">
+							</div>
 
-				<div class="form-group">
-					<label class="control-label">Date De Naissance</label> <input
-						type="date" name="dateNaissance" class="form-control"
-						th:value="${patient.dateNaissance}"> <span
-						th:errors=${patient.dateNaissance} class="text-danger"></span>
-				</div>
+							<div class="form-group">
+								<label class="control-label">Name</label> <input type="text"
+									name="name" class="form-control" th:value="${patient.name}">
+								<span th:errors=${patient.name} class="text-danger"></span>
+							</div>
 
-				<div class="form-group">
-					<label class="control-label">Score</label> <input type="number"
-						name="score" class="form-control" th:value="${patient.score}">
-					<span th:errors=${patient.score} class="text-danger"></span>
-				</div>
+							<div class="form-group">
+								<label class="control-label">Email</label> <input type="email"
+									name="email" class="form-control" th:value="${patient.email}">
+								<span th:errors=${patient.email} class="text-danger"></span>
+							</div>
 
-				<div class="form-group">
-					<label class="control-label">Malade</label> <input type="checkbox"
-						name="malade" th:checked="patient.malade"> <span
-						th:errors=${patient.malade} class="text-danger"></span>
+							<div class="form-group">
+								<label class="control-label">Date De Naissance</label> <input
+									type="date" name="dateNaissance" class="form-control"
+									th:value="${patient.dateNaissance}"> <span
+									th:errors=${patient.dateNaissance} class="text-danger"></span>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label">Score</label> <input type="number"
+									name="score" class="form-control" th:value="${patient.score}">
+								<span th:errors=${patient.score} class="text-danger"></span>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label">Malade</label> <input
+									type="checkbox" name="malade" th:checked="patient.malade">
+								<span th:errors=${patient.malade} class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success" type="submit">Ajouter
+									Patient</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="form-group">
-					<button class="btn btn-success" type="submit">Ajouter
-						Patient</button>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 
