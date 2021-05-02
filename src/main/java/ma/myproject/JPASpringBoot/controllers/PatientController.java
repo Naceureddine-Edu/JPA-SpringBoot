@@ -1,23 +1,21 @@
 package ma.myproject.JPASpringBoot.controllers;
 
 
-<<<<<<< HEAD
+
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.*;
-=======
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> parent of df3cbc9 (Methode Ajouter Patient Avec Validation De Formulaire)
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.*;
+import org.springframework.web.bind.annotation.*;
+
 
 import ma.myproject.JPASpringBoot.entities.Patient;
 import ma.myproject.JPASpringBoot.repositories.PatientRepository;
-
 
 @Controller
 public class PatientController {
@@ -26,7 +24,7 @@ public class PatientController {
 	private PatientRepository patientrepository;
 	
 	
-	@GetMapping("/index")
+	@GetMapping(path="/index")
 	public String index()
 	{
 		return "index";
@@ -47,14 +45,6 @@ public class PatientController {
 		return "patients";
 	}
 	
-	//Premiere Facon De Faire Est La Meilleure
-	@GetMapping("/supprimerPatient")
-	public String supprimerPatient(Long id,String keyword,int page,int size)
-	{
-		patientrepository.deleteById(id);
-		return "redirect:/patients?page="+page+"&size="+size+"&keyword="+keyword;
-	}
-	
 	/*
 	//Deuxieme Facon De Faire Fowerd
 		@GetMapping("/supprimerPatient2")
@@ -65,10 +55,29 @@ public class PatientController {
 		}
 	*/
 	
+	//Premiere Facon De Faire Est La Meilleure
+	@GetMapping(path="/supprimerPatient")
+	public String supprimerPatient(Long id,String keyword,int page,int size)
+	{
+		patientrepository.deleteById(id);
+		return "redirect:/patients?page="+page+"&size="+size+"&keyword="+keyword;
+	}
+		
 	
 	@GetMapping(path="/formPatient")
-	public String formPatient()
+	public String formPatient(Model model)
 	{
+		model.addAttribute("patient", new Patient());
 		return "formPatient";
+	}
+	
+	@PostMapping(path="/ajouterPatient")
+	public String ajouterPatient(@Valid Patient patient, BindingResult bindingResult)
+	{
+		if(bindingResult.hasErrors()) 
+			return "formPatient";
+		
+		patientrepository.save(patient);
+			return "formPatient";
 	}
 }
