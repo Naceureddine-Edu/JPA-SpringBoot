@@ -3,15 +3,11 @@ package ma.myproject.JPASpringBoot.entities;
 import java.util.Date;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import org.springframework.format.annotation.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 
 @Entity
 @Data @Table(name = "PATIENTS")
@@ -20,22 +16,24 @@ public class Patient {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull
-	@Size(min = 5, max = 25)
+	@Column(name = "nom", length = 7)
 	private String name;
+<<<<<<< HEAD
 	
 	@Temporal(TemporalType.DATE) // Pour la base de donnee
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // Pour la page web
 	@NotNull
+=======
+	@Temporal(TemporalType.DATE)
+>>>>>>> parent of df3cbc9 (Methode Ajouter Patient Avec Validation De Formulaire)
 	private Date dateNaissance;
-	
-	@DecimalMin("5") @DecimalMax("15") @NotNull
 	private int score;
-	
-	@AssertTrue //checked par default
 	private boolean malade;
+<<<<<<< HEAD
 	
 	@NotNull @Email
 	private String email;
+=======
+
+>>>>>>> parent of df3cbc9 (Methode Ajouter Patient Avec Validation De Formulaire)
 }

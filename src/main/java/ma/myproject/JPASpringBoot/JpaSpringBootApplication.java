@@ -1,7 +1,6 @@
 package ma.myproject.JPASpringBoot;
 
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +29,11 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		/*
-		patientRepository.save(new Patient(null,"Hassan",new Date(),14,false));
-		patientRepository.save(new Patient(null,"Hamza",new Date(),13,true));
-		patientRepository.save(new Patient(null,"Reda",new Date(),11,false));
-		patientRepository.save(new Patient(null,"Aziz",new Date(),66,false));
+		patientRepository.save(new Patient(null,"Hassan",new Date(),2300,false));
+		patientRepository.save(new Patient(null,"Hamza",new Date(),4444,true));
+		patientRepository.save(new Patient(null,"Reda",new Date(),8933,false));
+		patientRepository.save(new Patient(null,"Aziz",new Date(),6666,false));
 		*/
-		
 		/*
 		System.out.println("-------------------findAll---------------------(-----------------------");
 		
@@ -60,14 +58,12 @@ public class JpaSpringBootApplication implements CommandLineRunner {
 				System.out.println(p.toString()); 
 				});
 			
-			/*
 			System.out.println("--------------------findByNameAndScore-----------------------------");
 			
 			List<Patient> patientsScore = patientRepository.findByScoreGreaterThan(5000);
 			patientsScore.forEach(p-> { 
 				System.out.println(p.toString()); 
 				});
-				*/
 			
 			/*System.out.println("--------------------deletteById------------------------------------");
 			

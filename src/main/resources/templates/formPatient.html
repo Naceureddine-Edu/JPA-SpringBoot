@@ -13,6 +13,7 @@
 <body>
 	<div layout:fragment="content">
 		<div class="container">
+<<<<<<< HEAD
 			<form th:action="@{ajouterPatient}" method="post">
 
 				<div class="form-group">
@@ -25,10 +26,17 @@
 					<label class="control-label">Email</label> <input type="email"
 						name="name" class="form-control" th:value="${patient.email}">
 					<span th:errors=${patient.email} class="text-danger"></span>
+=======
+			<form>
+				<div class="form-group">
+					<label class="control-label">Name</label> <input type="text"
+						name="name" class="form-control"> <span></span>
+>>>>>>> parent of df3cbc9 (Methode Ajouter Patient Avec Validation De Formulaire)
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Date De Naissance</label> <input
+<<<<<<< HEAD
 						type="date" name="dateNaissance" class="form-control"
 						th:value="${patient.dateNaissance}"> <span
 						th:errors=${patient.dateNaissance} class="text-danger"></span>
@@ -48,6 +56,14 @@
 				<div class="form-group">
 					<button class="btn btn-success" type="submit">Ajouter
 						Patient</button>
+=======
+						type="text" name="dateNaissance" class="form-control"> <span></span>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Malade</label> <input type="text"
+						name="malade" class="form-control"> <span></span>
+>>>>>>> parent of df3cbc9 (Methode Ajouter Patient Avec Validation De Formulaire)
 				</div>
 			</form>
 		</div>
