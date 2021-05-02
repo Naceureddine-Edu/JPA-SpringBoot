@@ -1,8 +1,6 @@
 package ma.myproject.JPASpringBoot.controllers;
 
 
-
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.*;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import ma.myproject.JPASpringBoot.entities.Patient;
 import ma.myproject.JPASpringBoot.repositories.PatientRepository;
+
 
 @Controller
 public class PatientController {
