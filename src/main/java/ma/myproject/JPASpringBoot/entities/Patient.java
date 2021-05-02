@@ -27,6 +27,7 @@ public class Patient {
 	
 	@Temporal(TemporalType.DATE) // Pour la base de donnee
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // Pour la page web
+	@NotNull
 	private Date dateNaissance;
 	
 	@DecimalMin("5") @DecimalMax("15") @NotNull
@@ -34,4 +35,7 @@ public class Patient {
 	
 	@AssertTrue //checked par default
 	private boolean malade;
+	
+	@NotNull @Email
+	private String email;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorator="PageTemplate">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="PageTemplate">
 
 <head>
 <meta charset="utf-8">
@@ -14,34 +14,40 @@
 	<div layout:fragment="content">
 		<div class="container">
 			<form th:action="@{ajouterPatient}" method="post">
-			
+
 				<div class="form-group">
-					<label class="control-label">name</label> <input type="text"
-						name="name" class="form-control" th:value="${patient.name}"> 
-						<span th:errors=${patient.name} class="text-danger"></span>
+					<label class="control-label">Name</label> <input type="text"
+						name="name" class="form-control" th:value="${patient.name}">
+					<span th:errors=${patient.name} class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Email</label> <input type="email"
+						name="name" class="form-control" th:value="${patient.email}">
+					<span th:errors=${patient.email} class="text-danger"></span>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Date De Naissance</label> <input
-						type="date" name="dateNaissance" class="form-control" 
-						th:value="${patient.dateNaissance}">
-						 <span th:errors=${patient.dateNaissance} class="text-danger"></span>
+						type="date" name="dateNaissance" class="form-control"
+						th:value="${patient.dateNaissance}"> <span
+						th:errors=${patient.dateNaissance} class="text-danger"></span>
 				</div>
-				
+
 				<div class="form-group">
-					<label class="control-label">Score</label> <input
-						type="number" name="score" class="form-control" 
-						th:value="${patient.score}">
-						 <span th:errors=${patient.score} class="text-danger"></span>
+					<label class="control-label">Score</label> <input type="number"
+						name="score" class="form-control" th:value="${patient.score}">
+					<span th:errors=${patient.score} class="text-danger"></span>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Malade</label> <input type="checkbox"
-						name="malade" th:checked="patient.malade"> 
-						<span th:errors=${patient.malade} class="text-danger"></span>
+						name="malade" th:checked="patient.malade"> <span
+						th:errors=${patient.malade} class="text-danger"></span>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-success" type="submit">Ajouter Patient</button>
+					<button class="btn btn-success" type="submit">Ajouter
+						Patient</button>
 				</div>
 			</form>
 		</div>
