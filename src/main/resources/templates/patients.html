@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 	layout:decorator="PageTemplate">
 
 <head>
@@ -19,8 +20,11 @@
 
 					<form method="get" th:action="@{patients}">
 						<div class="form-group">
-							<label>Nom Patient</label> <input type="text" name="keyword"
+							<label>Nom Patient</label> 
+							
+							<input type="text" name="keyword"
 								th:value="${keywordModel}">
+							
 							<button class="btn btn-dark">Chercher</button>
 						</div>
 					</form>
@@ -41,11 +45,15 @@
 							<td th:text="${p.dateNaissance}"></td>
 							<td th:text="${p.score}"></td>
 							<td th:text="${p.malade}"></td>
-							<td><a th:href="@{formPatient}" class="btn btn-success">
-									Ajouter </a></td>
-							<td><a class="btn btn-primary"
-								th:href="@{modifierPatient(id=${p.id})}"> Modifier </a></td>
-							<td><a
+							
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								th:href="@{formPatient}" class="btn btn-success"> Ajouter </a></td>
+								
+							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+								class="btn btn-primary" th:href="@{modifierPatient(id=${p.id})}">
+									Modifier </a></td>
+									
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								onclick="return confirm('etes vous sure de vouloir supprimer ?')"
 								class="btn btn-danger"
 								th:href="@{supprimerPatient(id=${p.id},
@@ -56,7 +64,8 @@
 					</table>
 
 					<ul class="nav nav-pills">
-						<li th:each="page,status:${pages}"><a
+						<li th:each="page,status:${pages}">
+						<a
 							th:href="@{patients(page=${status.index},
 								keyword=${keywordModel},size=${sizeModel})}"
 							th:text="${status.index}"

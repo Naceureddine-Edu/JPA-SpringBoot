@@ -89,4 +89,10 @@ public class PatientController {
 		model.addAttribute("patient", p);
 		return "formPatient";
 	}
+	
+	@GetMapping(path="/nonAuthoriser")
+	public String nonAuthoriser()
+	{
+		return "nonAuthoriser";
+	}
 }
